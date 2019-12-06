@@ -1,0 +1,121 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link href="index.css" rel="stylesheet" />
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <title>Subscription Preferences</title>
+    <!-- <script>
+      var _veroq = _veroq || [];
+      _veroq.push([
+        'init',
+        { api_key: '98c6d697cd09c216aab87e18399cf7f42b406ef5' }
+      ]);
+
+      (function() {
+        var ve = document.createElement('script');
+        ve.type = 'text/javascript';
+        ve.async = true;
+        ve.src = '//d3qxef4rp70elm.cloudfront.net/m.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ve, s);
+      })();
+
+      _veroq.push([
+        'tags',
+        {
+          id: 'testing111@gmail.com ',
+          add: ['test-1'],
+          auth_token:
+            'OThjNmQ2OTdjZDA5YzIxNmFhYjg3ZTE4Mzk5Y2Y3ZjQyYjQwNmVmNTo4YzQ3ZDYxMWNiMzcwMDNkNjg0OGZhNDI4YTlkNzgyMWM2MTNhNDVj'
+        }
+      ]);
+    </script> -->
+  </head>
+  <body>
+    <div class="data">
+      <span>
+        <input name="subscriptions" type="checkbox" value="Daily Scoop" />
+        <label for="subscriptions">Daily Scoop</label>
+      </span>
+
+      <span>
+        <input
+          name="subscriptions"
+          type="checkbox"
+          value="Trading Stocks Updates and Offers"
+        />
+        <label for="subscriptions">Trading Stocks Updates and Offers</label>
+      </span>
+
+      <span>
+        <input
+          name="subscriptions"
+          type="checkbox"
+          value="Partner Offers and Updates"
+        />
+        <label for="subscriptions">Partner Offers and Updates</label>
+      </span>
+
+      <span>
+        <input name="subscriptions" type="checkbox" value="Chart Alerts" />
+        <label for="subscriptions">Chart Alerts</label>
+      </span>
+
+      <input
+        type="button"
+        onclick="(handleClick('subscriptions'));"
+        value="Unsubscribe"
+      />
+    </div>
+
+    <script>
+      async function handleClick(checkboxName) {
+        const checkboxes = document.querySelectorAll(
+          'input[name="' + checkboxName + '"]:checked'
+        );
+
+        const values = [];
+        checkboxes.forEach(function(el) {
+          values.push(el.value);
+        });
+
+        const rand = Math.random();
+        const url = 'https://api.getvero.com/api/v2/users/tags/edit';
+        const data = {
+          auth_token:
+            'OThjNmQ2OTdjZDA5YzIxNmFhYjg3ZTE4Mzk5Y2Y3ZjQyYjQwNmVmNTo4YzQ3ZDYxMWNiMzcwMDNkNjg0OGZhNDI4YTlkNzgyMWM2MTNhNDVj',
+          id: 'testing111@gmail.com',
+          add: [`${rand}`]
+        };
+
+        try {
+          const response = await fetch(url, {
+            method: 'PUT',
+            body: JSON.stringify(data)
+            // headers: {
+            //   'Content-Type': 'application/json'
+            // }
+          });
+          const json = await response.json();
+          console.log('Success:', JSON.stringify(json));
+        } catch (error) {
+          console.error('Error:', error);
+        }
+      }
+    </script>
+
+    <script type="text/javascript" src="index.js"></script>
+  </body>
+</html>
+
+<!-- Daily Scoop
+Trading Stocks Updates and Offers
+Partner Offers and Updates
+Chart Alerts -->
