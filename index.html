@@ -62,11 +62,12 @@
 
         const url = 'https://api.getvero.com/api/v2/users/tags/edit';
         const data = {
-          auth_token:
-            'OThjNmQ2OTdjZDA5YzIxNmFhYjg3ZTE4Mzk5Y2Y3ZjQyYjQwNmVmNTo4YzQ3ZDYxMWNiMzcwMDNkNjg0OGZhNDI4YTlkNzgyMWM2MTNhNDVj',
+          auth_token: '',
           id: 'testing111@gmail.com',
           add: [`${values}`]
         };
+
+        debugger;
 
         try {
           const response = await fetch(url, {
